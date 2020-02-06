@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using LuckySpin.Models;
 using LuckySpin.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace LuckySpin.Controllers
 {
@@ -53,7 +54,7 @@ namespace LuckySpin.Controllers
         {
             //** Gets the Player belonging to the given id
             //TODO: Modify the code to use the SingleOrDefault Lamda Extension method
-            Player player = _dbc.Players.Find(id);
+            Player player = _dbc.Players.Include(p=>p.Spins).SingleOrDefault(p=>p.Id==id);
             // Populates a new SpinItViewModel for this spin
             // using the player information
             SpinItViewModel spinItVM = new SpinItViewModel() {
@@ -78,8 +79,8 @@ namespace LuckySpin.Controllers
                 IsWinning = spinItVM.Winner
             };
             //** Adds the Spin to the Database Context
-            //TODO: Modify the next line to use the _dbc.Players.Spins collection instead
-            _dbc.Spins.Add(spin);
+            //TODO: Modify the next line to use this player's Spins collection instead
+            player.Spins.Add(spin);
             //**** Saves all the changes to the Database at once
             _dbc.SaveChanges();
 
@@ -94,10 +95,10 @@ namespace LuckySpin.Controllers
         {
             //Gets the Player belonging to the given id
             //TODO: Modify the code to use the SingleOrDefault Lamda Extension method
-            Player player = _dbc.Players.Find(id);
+            Player player = _dbc.Players.Include(p => p.Spins).SingleOrDefault(p => p.Id == id);
             //Gets the list of Spins from the Context
-            //TODO: Modify the next line to get the list of the Player's Spins instead of all the Spins
-            IEnumerable<Spin> spins = _dbc.Spins;
+            //TODO: Modify the next line to get the list of the player's Spins instead of all the Spins
+            IEnumerable<Spin> spins = player.Spins;
             // Hack in some detail about the player
             ViewBag.Player = player;
 
