@@ -15,13 +15,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplicationCoreEmpty": {
-      "commandName": "Project",
+    "LuckySpin": {
+      "commandName": "LuckySpin",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:51616/"
+      "applicationUrl": "http://localhost:5005/"
     }
   }
 }

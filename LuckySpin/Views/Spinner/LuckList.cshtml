@@ -7,7 +7,7 @@
     <thead><tr><th>Luck</th><th>Result</th></tr></thead>
     <tbody>
         @foreach( LuckySpin.Models.Spin spin in @Model ){
-            <tr><td>@spin.Luck</td><td>@spin.IsWinning</td></tr>
+            <tr><td>@spin.Player.Luck</td><td>@spin.IsWinning</td></tr>
         }
     </tbody>
 
