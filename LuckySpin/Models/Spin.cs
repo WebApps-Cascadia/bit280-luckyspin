@@ -5,38 +5,26 @@ namespace LuckySpin.Models
     public class Spin
     {
         Random random = new Random();
-        private int[] number; //a spin array
-        public bool isWinning;
+        private int[] numbers; //a spin array;
+
+        //Constructor
+        public Spin()
+        {
+            numbers = new int[] { random.Next(10), random.Next(10), random.Next(10) };
+        }
 
         //Properties
-        public Player Player { get; set; } //read-write
-
-        public bool IsWinning { get { return isWinning; } } //read only
-
-        public int[] Number
+        public int[] Numbers //Read only - these values are set in the constructor
+        { 
+            get { return numbers; }
+        } 
+     
+        public bool IsWinning //Read only - true if Player's Luck is one of the numbers
         {
-            get
-            {
-                number = new int[] { random.Next(10), random.Next(10), random.Next(10) };
-                isWinning = (number[0] == Player.Luck || number[1] == Player.Luck || number[2] == Player.Luck);
-                return number;
-            }
+            get { return numbers.Contains(Player.Luck); }
         }
-        //Create a public getter that makes the decision to display the image or not by returning "block" or "none" for the Razor templates CSS
-        public string Display
-        {
-            get
-            {
-                if (isWinning)
-                {
-                    return "display:block";
-                }
-                else
-                {
-                    return "display:none";
-                }
-            }
-        }
+
+        public Player Player { get; set; } //Read-Write
     }
 
 }

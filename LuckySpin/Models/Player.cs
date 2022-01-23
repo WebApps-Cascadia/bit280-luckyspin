@@ -5,6 +5,7 @@ namespace LuckySpin.Models
     {
         [Required(ErrorMessage ="Please enter your Name")]
         public string FirstName { get; set; }
+
         [Range(1,9, ErrorMessage = "Choose a number")]
         public int Luck { get; set; }
     }
