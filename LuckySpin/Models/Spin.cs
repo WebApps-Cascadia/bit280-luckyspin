@@ -13,8 +13,8 @@ namespace LuckySpin.Models
             numbers = new int[] { random.Next(10), random.Next(10), random.Next(10) };
         }
 
-        //Properties
-        public int[] Numbers //Read only - these values are set in the constructor
+        //Spin Properties
+        public int[] Numbers //Read only - the spin numbers are set in the constructor
         { 
             get { return numbers; }
         } 
@@ -24,7 +24,7 @@ namespace LuckySpin.Models
             get { return numbers.Contains(Player.Luck); }
         }
 
-        public Player Player { get; set; } //Read-Write
+        public Player Player { get; set; } //Read-Write set as needed in the controller
     }
 
 }

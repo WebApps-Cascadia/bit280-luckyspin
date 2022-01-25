@@ -9,20 +9,9 @@ namespace LuckySpin.Controllers
 {
     public class SpinnerController : Controller
     {
-        private Repository repository; //instance variable
-
         /***
-         * Controller Constructor
-         */
-        public SpinnerController(Repository r)
-        {
-            repository = r;
-        }
-
-        /***
-         * Entry Page Action
+         * Index Action
          **/
-
         [HttpGet]
         public IActionResult Index()
         {
@@ -43,9 +32,8 @@ namespace LuckySpin.Controllers
                
         public IActionResult Spin(Player player)
         {
-            //Create a new Spin and add it to the repository
+            //Create a new Spin with the player
             Spin spin = new Spin { Player = player };
-            repository.AddSpin(spin);
 
             return View("Spin", spin);
         }
@@ -56,7 +44,7 @@ namespace LuckySpin.Controllers
         [HttpGet]
         public IActionResult LuckList()
         {
-                return View(repository.PlayerSpins);
+                return View();
         }
 
     }

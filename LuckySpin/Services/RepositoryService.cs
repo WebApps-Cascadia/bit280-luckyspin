@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LuckySpin.Models
 {
-    public class Repository
+    public class RepositoryService
     {
         private List<Spin> spins = new List<Spin>();
 

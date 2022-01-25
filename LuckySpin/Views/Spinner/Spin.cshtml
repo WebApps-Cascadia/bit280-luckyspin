@@ -1,7 +1,6 @@
 ﻿@model LuckySpin.Models.Spin
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @inject LuckySpin.Models.TextTransformService Transform
-@inject LuckySpin.Models.Repository repo
 @{
     Layout = "_Layout";
     string Display = Model.IsWinning ? "display:block" : "display : none";
