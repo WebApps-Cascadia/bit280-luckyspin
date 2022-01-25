@@ -4,11 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LuckySpin.Models;
+using LuckySpin.Services;
 
 namespace LuckySpin.Controllers
 {
     public class SpinnerController : Controller
     {
+        private RepositoryService repoService;
+        /***
+         * Constructor
+         **/
+        public SpinnerController(RepositoryService repoService)
+        {
+            this.repoService = repoService;
+        }
+
         /***
          * Index Action
          **/
@@ -34,6 +44,8 @@ namespace LuckySpin.Controllers
         {
             //Create a new Spin with the player
             Spin spin = new Spin { Player = player };
+            //Add to LuckList
+            repoService.AddSpin(spin);
 
             return View("Spin", spin);
         }
@@ -44,7 +56,7 @@ namespace LuckySpin.Controllers
         [HttpGet]
         public IActionResult LuckList()
         {
-                return View();
+                return View(repoService.PlayerSpins);
         }
 
     }

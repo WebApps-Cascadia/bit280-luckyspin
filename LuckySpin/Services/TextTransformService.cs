@@ -1,5 +1,5 @@
 ﻿using System;
-namespace LuckySpin.Models
+namespace LuckySpin.Services
 {
     public class TextTransformService
     {

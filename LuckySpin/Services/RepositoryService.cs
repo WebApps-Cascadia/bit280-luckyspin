@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using LuckySpin.Models;
 
-namespace LuckySpin.Models
+namespace LuckySpin.Services
 {
     public class RepositoryService
     {
