@@ -7,9 +7,6 @@
       "sslPort": 0
     }
   },
-  "ConnectionStrings": {
-    "LuckySpinDb": "Data Source=LuckySpin.db"
-  },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
@@ -19,12 +16,12 @@
       }
     },
     "LuckySpin": {
-      "commandName": "Project",
+      "commandName": "LuckySpin",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000"
+      "applicationUrl": "http://localhost:5002"
     }
   }
 }
