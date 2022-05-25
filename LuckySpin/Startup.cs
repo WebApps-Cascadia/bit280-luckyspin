@@ -32,6 +32,9 @@ namespace LuckySpin
             services.AddDbContext<LuckySpinContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("LuckySpinDb")));
 
+            services.AddDbContext<LuckySpinContext>(options =>
+            options.UseMySQL(Configuration.GetConnectionString("LuckySpinDb")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
